@@ -17,7 +17,14 @@
   <div id="container">
     <strong class="capitalize">You are </strong>
     <ion-text *ngIf="status" color="success">Online</ion-text>
-    <ion-text *ngIf="!status" color="danger">Online</ion-text>
-    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <!-- <ion-text *ngIf="!status" color="danger">Online</ion-text> -->
+    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI
+        Components</a></p>
   </div>
+  <ion-modal [isOpen]="!status">
+    <ng-template>
+      <app-empty-screen [model]="model" (retry)="checkStatus($event)"></app-empty-screen>
+    </ng-template>
+  </ion-modal>
+
 </ion-content>
