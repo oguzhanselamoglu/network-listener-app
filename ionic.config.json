@@ -1,0 +1,8 @@
+{
+  "name": "network-listener-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "76f03a37"
+}
