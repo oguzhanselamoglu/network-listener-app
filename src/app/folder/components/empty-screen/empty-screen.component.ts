@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, Inject } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-empty-screen',
@@ -8,10 +9,16 @@ import { Component, OnInit, Input, Output } from '@angular/core';
 export class EmptyScreenComponent implements OnInit {
 
   @Input() model : any;
-  //@Output() retry
+  @Output() retry: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor() { }
+  //private modalCtrl = Inject(ModalController);
+  constructor(private modalCtrl: ModalController) { }
 
   ngOnInit() {}
+
+  retryButton() {
+   // this.retry.emit(true);
+    this.modalCtrl.dismiss();
+  }
 
 }
